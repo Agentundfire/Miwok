@@ -18,38 +18,28 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_numbers);
 
         //create list of words
-        ArrayList<String> words = new ArrayList<String>();
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("eight");
-        words.add("nine");
-        words.add("ten");
+        ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("lutti","one"));
+        words.add(new Word("lutti","two"));
+        words.add(new Word("lutti","three"));
+        words.add(new Word("lutti","four"));
+        words.add(new Word("lutti","five"));
+        words.add(new Word("lutti","six"));
+        words.add(new Word("lutti","seven"));
+        words.add(new Word("lutti","eight"));
+        words.add(new Word("lutti","nine"));
+        words.add(new Word("lutti","ten"));
 
-        // Create an {@link ArrayAdapter}, whose data source is a list of Strings. The
+        // Create an {@link ArrayAdapter}, whose data source is a list of Word.java. The
         // adapter knows how to create layouts for each item in the list, using the
-        // simple_list_item_1.xml layout resource defined in the Android framework.
-        // This list item layout contains a single {@link TextView}, which the adapter will set to
-        // display a single word.
-        ArrayAdapter<String> itemsAdapter =
-                new ArrayAdapter<String>(this, R.layout.list_item, words);
+        // simple_list.xml layout resource defined in the layout folder.
+        // This list item layout contains a single {@link ImageView} and two (@link TextView), which the adapter will set to
+        // display the set information.
+        WordAdapter wordAdapter = new WordAdapter(this,words);
 
-        // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
-        // There should be a {@link ListView} with the view ID called list, which is declared in the
-        // activity_numbers.xml layout file.
-        ListView listView = (ListView) findViewById(R.id.list);
-        //GridView gridView = (GridView) findViewById(R.id.list);
-
-        // Make the {@link ListView} use the {@link ArrayAdapter} we created above, so that the
-        // {@link ListView} will display list items for each word in the list of words.
-        // Do this by calling the setAdapter method on the {@link ListView} object and pass in
-        // 1 argument, which is the {@link ArrayAdapter} with the variable name itemsAdapter.
-        listView.setAdapter(itemsAdapter);
-        //gridView.setAdapter(itemsAdapter);
+        // Get a reference to the ListView, and attach the adapter to the listView.
+        ListView listView = (ListView) findViewById(R.id.list_view_numbers);
+        listView.setAdapter(wordAdapter);
 
     }
 }
