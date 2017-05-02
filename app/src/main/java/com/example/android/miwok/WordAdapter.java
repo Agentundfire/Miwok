@@ -15,6 +15,8 @@ import java.util.ArrayList;
 * */
 public class WordAdapter extends ArrayAdapter<Word> {
 
+    private static  final String LOG_TAG = WordAdapter.class.getSimpleName();
+
     public WordAdapter(Activity context, ArrayList<Word> words) {
         super(context, 0, words);
     }
