@@ -17,6 +17,12 @@ public class Word {
         mImageResourceId = R.mipmap.ic_launcher;
     }
 
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId){
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        mImageResourceId = imageResourceId;
+    }
+
     public String getDefaultTranslation() {
         return mDefaultTranslation;
     }
