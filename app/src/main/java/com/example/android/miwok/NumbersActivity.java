@@ -31,7 +31,7 @@ public class NumbersActivity extends AppCompatActivity {
         // simple_list.xml layout resource defined in the layout folder.
         // This list item layout contains a single {@link ImageView} and two (@link TextView), which the adapter will set to
         // display the set information.
-        WordAdapter wordAdapter = new WordAdapter(this,words);
+        WordAdapter wordAdapter = new WordAdapter(this,words,R.color.category_numbers);
 
         // Get a reference to the ListView, and attach the adapter to the listView.
         ListView listView = (ListView) findViewById(R.id.list_view);
