@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
 /*
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 * */
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    private static  final String LOG_TAG = WordAdapter.class.getSimpleName();
+    private static final String LOG_TAG = WordAdapter.class.getSimpleName();
 
     public WordAdapter(Activity context, ArrayList<Word> words) {
         super(context, 0, words);
@@ -40,7 +41,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
         defaultTextView.setText(currentWord.getDefaultTranslation());
 
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
-        iconView.setImageResource(currentWord.getmImageResourceId());
+        if (currentWord.hasImage()) {
+            iconView.setImageResource(currentWord.getmImageResourceId());
+            iconView.setVisibility(View.VISIBLE);
+        } else {
+            iconView.setVisibility(View.GONE);
+        }
 
         return listItemView;
     }
