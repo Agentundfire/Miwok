@@ -27,20 +27,20 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
         if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.word_item, parent, false);
         }
 
         // Get the {@link AndroidFlavor} object located at this position in the list
         Word currentWord = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID version_name and set the text
+        // Find the TextView in the word_item.xml layout with the ID version_name and set the text
         TextView miwokTextView = (TextView) listItemView.findViewById(R.id.miwok_text_view);
         miwokTextView.setText(currentWord.getMiwokTranslation());
 
         TextView defaultTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
         defaultTextView.setText(currentWord.getDefaultTranslation());
 
-        ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
+        ImageView iconView = (ImageView) listItemView.findViewById(R.id.word_item_icon);
         if (currentWord.hasImage()) {
             iconView.setImageResource(currentWord.getmImageResourceId());
             iconView.setVisibility(View.VISIBLE);
