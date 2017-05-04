@@ -20,24 +20,24 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         //create list of words
-        ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("lutti","one",R.drawable.number_one));
-        words.add(new Word("otiiko","two",R.drawable.number_two));
-        words.add(new Word("tolookosu","three",R.drawable.number_three));
-        words.add(new Word("oyyisa","four",R.drawable.number_four));
-        words.add(new Word("massokka","five",R.drawable.number_five));
-        words.add(new Word("temmokka","six",R.drawable.number_six));
-        words.add(new Word("kenekaku","seven",R.drawable.number_seven));
-        words.add(new Word("kawinta","eight",R.drawable.number_eight));
-        words.add(new Word("wo'e","nine",R.drawable.number_nine));
-        words.add(new Word("na'aacha","ten",R.drawable.number_ten));
+        final ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("lutti", "one", R.raw.number_one, R.drawable.number_one));
+        words.add(new Word("otiiko", "two", R.raw.number_two, R.drawable.number_two));
+        words.add(new Word("tolookosu", "three", R.raw.number_three, R.drawable.number_three));
+        words.add(new Word("oyyisa", "four", R.raw.number_four, R.drawable.number_four));
+        words.add(new Word("massokka", "five", R.raw.number_five, R.drawable.number_five));
+        words.add(new Word("temmokka", "six", R.raw.number_six, R.drawable.number_six));
+        words.add(new Word("kenekaku", "seven", R.raw.number_seven, R.drawable.number_seven));
+        words.add(new Word("kawinta", "eight", R.raw.number_eight, R.drawable.number_eight));
+        words.add(new Word("wo'e", "nine", R.raw.number_nine, R.drawable.number_nine));
+        words.add(new Word("na'aacha", "ten", R.raw.number_ten, R.drawable.number_ten));
 
         // Create an {@link ArrayAdapter}, whose data source is a list of Word.java. The
         // adapter knows how to create layouts for each item in the list, using the
         // simple_list.xml layout resource defined in the layout folder.
         // This list item layout contains a single {@link ImageView} and two (@link TextView), which the adapter will set to
         // display the set information.
-        WordAdapter wordAdapter = new WordAdapter(this,words,R.color.category_numbers);
+        WordAdapter wordAdapter = new WordAdapter(this, words, R.color.category_numbers);
 
         // Get a reference to the ListView, and attach the adapter to the listView.
         ListView listView = (ListView) findViewById(R.id.list_view);
@@ -46,7 +46,8 @@ public class NumbersActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                mMediaPlayer = MediaPlayer.create(NumbersActivity.this,R.raw.number_one);
+                Word word = words.get(position);
+                mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getmAudioResourceId());
                 mMediaPlayer.start();
             }
         });
