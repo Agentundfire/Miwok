@@ -2,9 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/word_item_height"
     android:background="@color/tan_background"
-    android:minHeight="@dimen/word_item_height"
     android:orientation="horizontal">
 
     <ImageView
@@ -16,8 +15,10 @@
         android:id="@+id/text_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/word_item_height"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/word_item_icon"
         android:layout_toRightOf="@id/word_item_icon"
         android:orientation="vertical"
         android:paddingLeft="16dp"
